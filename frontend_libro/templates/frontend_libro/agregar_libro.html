@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block titulo %}Agregar libro{% endblock titulo %}
+
+{% block contenido %}
+<div class="container">
+    <div class="container">
+        <br>
+        <h2>Agregar nuevo libro</h2>
+        <hr>
+        <form action="{% url 'agregar_libro' %}" method="POST">
+            {% csrf_token %}
+            <label class="form-group" for="titulo">Ttitulo: </label>
+            <input class="form-control" type="text" name="titulo"><br>
+
+            <label class="form-group" for="price">Precio: </label>
+            <input class="form-control" type="text" name="precio"><br>
+
+            <label class="form-group" for="autor">Autor: </label>
+            <input class="form-control" type="text" name="autor"><br>
+
+            <input class="btn btn-success" type="submit" value="Agregar Libro">
+
+        </form>
+        <br>
+
+    </div>
+</div>
+
+{% endblock contenido %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block titulo %}Editar Libro{% endblock titulo %}
+
+{% block contenido %}
+<div class="container">
+    <div class="sm-8">
+        <br>
+        <h2>Editar Libro</h2>
+        <hr>
+        <form action="{% url 'editar_libro' libro.id %}" method="POST">
+            {% csrf_token %}
+            <label class="form-group" for="titulo">Título: </label>
+            <input class="form-control" type="text" id="titulo" name="titulo" value="{{ libro.titulo }}"><br>
+
+            <label class="form-group" for="precio">Precio: </label>
+            <input class="form-control" type="text" id="precio" name="precio" value="{{ libro.precio }}"><br>
+
+            <label class="form-group" for="autor">Autor: </label>
+            <input class="form-control" type="text" id="autor" name="autor" value="{{ libro.autor }}"><br>
+
+            <input class="btn btn-success" type="submit" value="Actualizar">
+        </form>
+        <br>
+    </div>
+</div>
+{% endblock contenido %}

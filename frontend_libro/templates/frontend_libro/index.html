@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block titulo %} libreria{% endblock %}
+
+{% block contenido %}
+
+<div class="container">
+    <h1>Bienvenido a la librería</h1>
+    <br>
+    <h2> Listado de libros</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Precio</th>
+                <th>Autor</th>
+                <th>Acciones</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for libro in libros %}
+            <tr>
+                <td>{{ libro.id }}</td>
+                <td>{{ libro.titulo }}</td>
+                <td>{{ libro.precio }}</td>
+                <td>{{ libro.autor }}</td>
+                <td>
+                    <a class="btn btn-info" href="{% url 'editar_libro' libro.id %}">Editar</a>
+                    <a class="btn btn-danger" href="{% url 'borrar_libro' libro.id %}">Eliminar</a>
+                </td>
+            </tr>
+                {% endfor %}
+        </tbody>
+
+    </table>
+   <a class="btn btn-primary"href={% url 'agregar_libro'%}>Agregar libro</a>
+
+</div>
+
+
+{% endblock %}
+
